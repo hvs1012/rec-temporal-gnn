@@ -1,0 +1,13 @@
+dataset: movielens_1m
+raw_dir: data/raw/ml-1m
+processed_dir: data/processed
+splits:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+columns:
+  ratings: ["user_id", "movie_id", "rating", "timestamp"]
+schema:
+  nodes: ["user", "item"]
+  edges:
+    - {src: "user", rel: "interacted", dst: "item", features: ["rating", "timestamp"]}
